@@ -5,7 +5,8 @@ To develop an app that allows you to check out your statistics from League of Le
 - [ ] Register Users.
 - [ ] Login.
 - [ ] Match History of a Summoner.
-    - [ ] Match Card. Has 2 Teams Cards.
+    - [ ] Match Card. Has 2 Teams Cards and 1 Info Card.
+    - [ ] Info Card. Contains match data. 
     - [ ] Team Card. Has 5 Player Cards.
     - [ ] Player Card. Has a Champion and Summoner Name.
 - [ ] User Profile. (MYSQL Data)
