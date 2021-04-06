@@ -28,3 +28,6 @@ To develop an app that allows you to check out your statistics from League of Le
     - [ ] Detail Page Champion.
 - [ ] Live Match.
 - [ ] CI/CD Conf.
+
+# Dashboard
+![DashboardImage](./LeagueOracleDashBoard.png)
