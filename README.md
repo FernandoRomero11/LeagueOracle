@@ -8,7 +8,7 @@ To develop an app that allows you to check out your statistics from League of Le
     - [ ] Match Card. Has 2 Teams Cards and 1 Info Card.
     - [ ] Info Card. Contains match data. 
     - [ ] Team Card. Has 5 Player Cards.
-    - [ ] Player Card. Has a Champion and Summoner Name.
+    - [ ] Player Card. Contains Champion used and Summoner Name.
 - [ ] User Profile. (MYSQL Data)
 - [ ] Summoner Profile. (In-Game Data)
     - [ ] Most Played Champions.
