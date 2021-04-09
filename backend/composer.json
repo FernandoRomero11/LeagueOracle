@@ -1,0 +1,6 @@
+{
+    "require": {
+        "dolejska-daniel/riot-api-league": "^1",
+        "dolejska-daniel/riot-api-datadragon": "^1"
+    }
+}
