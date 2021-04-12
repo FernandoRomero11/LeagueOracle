@@ -5,12 +5,14 @@ use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\DataDragonAPI\DataDragonAPI;
 use RiotAPI\Base\Definitions\Region;
 
+const API = 'RGAPI-80cb4783-5aa5-4bb1-9e3f-e61d7ca2827b';
+
 class MyApi{
     public $api;
 
     function __construct(){
         $this->api = new LeagueAPI([
-            LeagueAPI::SET_KEY    => 'RGAPI-bfda020c-8f1f-40ab-964d-f79026447da4',
+            LeagueAPI::SET_KEY    => API,
             LeagueAPI::SET_REGION => Region::EUROPE_WEST,
         ]);
         DataDragonAPI::initByCdn();
@@ -30,7 +32,7 @@ class MyApi{
         foreach ($staticItems AS $staticItem){
             $item["name"] = $staticItem->name;
             $item["htmltag"] = DataDragonAPI::getItemIcon($staticItem->id);
-            $items = array_push($item);
+            array_push($items,$item);
         }
         return $items;
     }
@@ -41,7 +43,7 @@ class MyApi{
         foreach ($staticChampions AS $staticChampion){
             $champion["name"] = $staticChampion->name;
             $champion["htmltag"] = DataDragonAPI::getChampionIcon($staticChampion->id);
-            $champions = array_push($champion);
+            array_push($champions,$champion);
         }
         return $champions;
     }
@@ -55,18 +57,17 @@ class MyApi{
             if($i == 1){
                 break;
             }
-            $match = $this->api->getMatch($match->gameId);
-            echo("<pre>");
-            var_dump($match);
-            echo("</pre>");
-
+            $myMatch = $this->api->getMatch($match->gameId);
+            $players = [];
+            foreach($myMatch->participantIdentities AS $participant){
+                $players[$participant->participantId]["participantsIdentitiesData"] = $participant->getData();
+            }
+            foreach($myMatch->participants AS $participant){
+                $players[$participant->participantId]["participantsData"] = $participant->getData();
+            }
+            array_push($matchsResult,$players);
             $i++;
         }
 
-        $team1 = [];
-        $team2 = [];
-
-
-        $match["teams"] = [$team1,$team2];
     }
 }

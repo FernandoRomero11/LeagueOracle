@@ -10,13 +10,13 @@ DataDragonAPI::initByCdn();
 //  Initialize the library
 $api = new LeagueAPI([
     //  Your API key, you can get one at https://developer.riotgames.com/
-    LeagueAPI::SET_KEY    => 'RGAPI-bfda020c-8f1f-40ab-964d-f79026447da4',
+    LeagueAPI::SET_KEY    => 'RGAPI-80cb4783-5aa5-4bb1-9e3f-e61d7ca2827b',
     //  Target region (you can change it during lifetime of the library instance)
     LeagueAPI::SET_REGION => Region::EUROPE_WEST,
 ]);
 
-//  And now you are ready to rock!
-$summoner = $api->getSummonerByName("Senna de Picoteo");
+//  And now you are ready to rock
+    $summoner = $api->getSummonerByName("Gonziz");
 
 echo $summoner->id."<br>";             //  KnNZNuEVZ5rZry3I...
 echo $summoner->puuid."<br>";          //  rNmb6Rq8CQUqOHzM...
@@ -47,8 +47,10 @@ foreach ($matchlist AS $match){
     foreach($myMatch->participants AS $participant){
         $players[$participant->participantId]["participantsData"] = $participant->getData();
     }
-
+    echo("Array players");
+    echo("<pre>");
     var_dump($players);
+    echo("</pre>");
 
 
 }
