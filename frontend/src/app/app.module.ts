@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { Nopage404Component } from './nopage404/nopage404.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [

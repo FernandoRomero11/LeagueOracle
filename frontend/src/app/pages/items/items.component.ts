@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from 'src/app/services/items.service';
 
+
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html'
@@ -21,5 +22,4 @@ export class ItemsComponent implements OnInit {
       this.items = result;
     })
   }
-
 }

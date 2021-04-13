@@ -9,6 +9,7 @@ import { ChampionsComponent } from './champions/champions.component';
 import { ItemsComponent } from './items/items.component';
 import { MatchHistoryComponent } from './match-history/match-history.component';
 import { FavouritePlayersComponent } from './favourite-players/favourite-players.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
             { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
             { path: 'champions', component: ChampionsComponent, data: { title: 'Champions' }},
             { path: 'items', component: ItemsComponent, data: { title: 'Items' }},
+            { path: 'items/:id', component: ItemDetailComponent, data: { title: 'Item Detail' }},
             { path: 'match-history', component: MatchHistoryComponent, data: { title: 'Match History' }},
             { path: 'favourite-players', component: FavouritePlayersComponent, data: { title: 'My favourite players' }},
         ]

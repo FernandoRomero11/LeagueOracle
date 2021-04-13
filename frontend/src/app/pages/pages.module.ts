@@ -11,6 +11,7 @@ import { FavouritePlayersComponent } from './favourite-players/favourite-players
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
+import { ItemDetailComponent } from './item-detail/item-detail.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
     ChampionsComponent,
     FavouritePlayersComponent,
     PagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ItemDetailComponent
   ],
   exports: [
     MatchHistoryComponent,
@@ -27,7 +29,8 @@ import { RouterModule } from '@angular/router';
     ChampionsComponent,
     FavouritePlayersComponent,
     PagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    ItemDetailComponent
   ],
   imports: [
     CommonModule,

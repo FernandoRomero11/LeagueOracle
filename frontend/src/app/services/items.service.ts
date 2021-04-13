@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +13,9 @@ export class ItemsService {
 
   getItems(): Observable<any[]>{
     return this.http.get<any[]>(`${this.PHP_API_SERVER}/backend/getItems.php`)
+  }
+
+  getItemInfo(itemId: number): Observable<any[]>{
+    return this.http.get<any[]>(`${this.PHP_API_SERVER}/backend/getItemInfo.php?itemId=${itemId}`)
   }
 }

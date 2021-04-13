@@ -1,5 +1,5 @@
 <div class="d-flex row">
-    <div class="card card-body align-items-center" *ngFor="let item of items" style="width: 20%;">
+    <div class="card card-body align-items-center" *ngFor="let item of items" style="width: 20%;" [routerLink]="['/dashboard/items', item.id]">
         <img alt="{{item.htmltag.attrs.alt}}" class="{{item.htmltag.attrs.class}}" src="{{item.htmltag.attrs.src}}" style="width: 100px;">
         <h3 class="text-center">{{item.name}}</h3>
     </div>
