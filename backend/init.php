@@ -10,7 +10,7 @@ DataDragonAPI::initByCdn();
 //  Initialize the library
 $api = new LeagueAPI([
     //  Your API key, you can get one at https://developer.riotgames.com/
-    LeagueAPI::SET_KEY    => 'RGAPI-80cb4783-5aa5-4bb1-9e3f-e61d7ca2827b',
+    LeagueAPI::SET_KEY    => 'RGAPI-615bef3c-26dd-4c0a-bd0b-fa35919749df',
     //  Target region (you can change it during lifetime of the library instance)
     LeagueAPI::SET_REGION => Region::EUROPE_WEST,
 ]);

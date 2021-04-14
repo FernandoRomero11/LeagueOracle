@@ -30,11 +30,27 @@ class MyApi{
         $items = [];
         $staticItems = $this->api->getStaticItems();
         foreach ($staticItems AS $staticItem){
+            $item["id"] = $staticItem->id;
             $item["name"] = $staticItem->name;
             $item["htmltag"] = DataDragonAPI::getItemIcon($staticItem->id);
             array_push($items,$item);
         }
         return $items;
+    }
+
+    function getItemInfo($id){
+        $staticItems = $this->api->getStaticItems();
+        $item["id"] = $staticItems->data[$id]->id;
+        $item["name"] = $staticItems->data[$id]->name;
+        $item["description"] = $staticItems->data[$id]->description;
+        $item["gold"] = $staticItems->data[$id]->gold->getData();
+        $item["stats"] = $staticItems->data[$id]->stats->getData();
+        $item["htmltag"] = DataDragonAPI::getItemIcon($staticItems->data[$id]->id);
+        $item["from"] = [];
+        foreach($staticItems->data[$id]->from AS $childItem){
+            $item["from"][$childItem] = DataDragonAPI::getItemIcon($staticItems->data[$childItem]->id);
+        }
+        return $item;
     }
 
     function getAllChampions(){
