@@ -1,6 +1,7 @@
 <div class="d-flex row">
-    <div class="card card-body align-items-center" *ngFor="let champion of champions" style="width: 20%;">
+    <div class="card card-body align-items-center" *ngFor="let champion of champions" style="width: 20%;" [routerLink]="['/dashboard/champions', champion.id]">
         <img alt="{{champion.htmltag.attrs.alt}}" class="{{champion.htmltag.attrs.class}}" src="{{champion.htmltag.attrs.src}}" style="width: 100px;">
         <h3 class="text-center">{{champion.name}}</h3>
+        <h4 class="text-center">{{champion.title}}</h4>
     </div>
 </div>

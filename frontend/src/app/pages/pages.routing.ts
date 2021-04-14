@@ -10,6 +10,7 @@ import { ItemsComponent } from './items/items.component';
 import { MatchHistoryComponent } from './match-history/match-history.component';
 import { FavouritePlayersComponent } from './favourite-players/favourite-players.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { ChampionDetailComponent } from './champion-detail/champion-detail.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
         children: [
             { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
             { path: 'champions', component: ChampionsComponent, data: { title: 'Champions' }},
+            { path: 'champions/:id', component: ChampionDetailComponent, data: { title: 'Champion Detail' }},
             { path: 'items', component: ItemsComponent, data: { title: 'Items' }},
             { path: 'items/:id', component: ItemDetailComponent, data: { title: 'Item Detail' }},
             { path: 'match-history', component: MatchHistoryComponent, data: { title: 'Match History' }},

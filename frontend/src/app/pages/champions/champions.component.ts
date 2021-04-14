@@ -3,7 +3,8 @@ import { ChampionsService } from 'src/app/services/champions.service';
 
 @Component({
   selector: 'app-champions',
-  templateUrl: './champions.component.html'
+  templateUrl: './champions.component.html',
+  styleUrls: ['./champions.component.css']
 })
 export class ChampionsComponent implements OnInit {
   champions = [];

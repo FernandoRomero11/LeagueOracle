@@ -57,11 +57,26 @@ class MyApi{
         $champions = [];
         $staticChampions = $this->api->getStaticChampions();
         foreach ($staticChampions AS $staticChampion){
+            $champion["id"] = $staticChampion->id;
             $champion["name"] = $staticChampion->name;
+            $champion["title"] = $staticChampion->title;
             $champion["htmltag"] = DataDragonAPI::getChampionIcon($staticChampion->id);
             array_push($champions,$champion);
         }
         return $champions;
+    }
+
+    function getChampionInfo($id){
+        $staticChampion = DataDragonAPI::getStaticChampionById($id);
+        $champion["name"] = $staticChampion["name"];
+        $champion["title"] = $staticChampion["title"];
+        $champion["lore"] = $staticChampion["blurb"];
+        $champion["info"] = $staticChampion["info"];
+        $champion["tags"] = $staticChampion["tags"];
+        $champion["stats"] = $staticChampion["stats"];
+        $champion["icontag"] = DataDragonAPI::getChampionIcon($id);
+        $champion["splashtag"] = DataDragonAPI::getChampionSplash($id);
+        return $champion;
     }
 
     function getGamesData($name){

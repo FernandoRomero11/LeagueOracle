@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatchHistoryModule } from './match-history/match-history.module';
 
 
@@ -12,7 +11,6 @@ import { MatchHistoryModule } from './match-history/match-history.module';
     MatchHistoryModule
   ],
   imports: [
-    CommonModule,
     MatchHistoryModule
   ]
 })

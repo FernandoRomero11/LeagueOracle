@@ -8,6 +8,7 @@ import { KdaComponent } from './kda/kda.component';
 import { ResultComponent } from './result/result.component';
 import { PlayerComponent } from './player/player.component';
 import { SetupComponent } from './setup/setup.component';
+import { MatchHistoryComponent } from './match-history.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SetupComponent } from './setup/setup.component';
     ResultComponent,
     PlayerComponent,
     SetupComponent,
+    MatchHistoryComponent,
   ],
   imports: [
     CommonModule

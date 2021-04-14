@@ -14,4 +14,8 @@ export class ChampionsService {
   getChampions(): Observable<any[]>{
     return this.http.get<any[]>(`${this.PHP_API_SERVER}/backend/getChampions.php`)
   }
+
+  getChampionInfo(championId: string): Observable<any[]>{
+    return this.http.get<any[]>(`${this.PHP_API_SERVER}/backend/getChampionInfo.php?championId=${championId}`)
+  }
 }
