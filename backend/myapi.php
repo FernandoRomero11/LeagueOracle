@@ -5,7 +5,7 @@ use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\DataDragonAPI\DataDragonAPI;
 use RiotAPI\Base\Definitions\Region;
 
-const API = 'RGAPI-80cb4783-5aa5-4bb1-9e3f-e61d7ca2827b';
+const API = 'RGAPI-b1949226-ff5d-4769-99ee-2dad5258c29c';
 
 class MyApi{
     public $api;
@@ -79,26 +79,64 @@ class MyApi{
         return $champion;
     }
 
+    function getChampionNameById($id){
+        $staticChampion = $this->api->getStaticChampion($id);
+        return $staticChampion->id;
+    }
+
     function getGamesData($name){
         $accountId = $this->getSummonerId($name);
         $matchs = $this->getMatchList($accountId);
         $matchsResult = [];
         $i = 0;
         foreach($matchs AS $match){
-            if($i == 1){
+            if($i == 2){
                 break;
             }
             $myMatch = $this->api->getMatch($match->gameId);
-            $players = [];
+            $matchData["type"] = $myMatch->gameMode;
+            $matchData["duration"] = $myMatch->gameDuration;
+            $matchData[100]["kills"] = 0;
+            $matchData[200]["kills"] = 0;
+            $teams = [];
             foreach($myMatch->participantIdentities AS $participant){
-                $players[$participant->participantId]["participantsIdentitiesData"] = $participant->getData();
+                $id = $participant->participantId;
+                $team = ($id <= 5)?100:200;
+                $teams[$team][$id]["identity"] = $participant->getData();
             }
             foreach($myMatch->participants AS $participant){
-                $players[$participant->participantId]["participantsData"] = $participant->getData();
+                $team = $participant->teamId;
+                $id = $participant->participantId;
+                $championName = $this->getChampionNameById($participant->championId);
+                $teams[$team][$id]["identity"]["champIcon"] = DataDragonAPI::getChampionIcon($championName);
+                $teams[$team][$id]["data"] = $participant->getData();
+
+                unset($teams[$team][$id]["data"]["stats"]);
+                unset($teams[$team][$id]["data"]["timeline"]);
+
+                $teams[$team][$id]["data"]["stats"]["champLevel"] = $participant->stats->champLevel;
+                $teams[$team][$id]["data"]["stats"]["kills"] = $participant->stats->kills;
+                $teams[$team][$id]["data"]["stats"]["assists"] = $participant->stats->assists;
+                $teams[$team][$id]["data"]["stats"]["deaths"] = $participant->stats->deaths;
+                $teams[$team][$id]["data"]["stats"]["damage"] = $participant->stats->totalDamageDealtToChampions;
+                $teams[$team][$id]["data"]["stats"]["goldEarned"] = $participant->stats->goldEarned;
+                $teams[$team][$id]["data"]["stats"]["visionScore"] = $participant->stats->visionScore;
+                $teams[$team][$id]["data"]["stats"]["item0"] = $participant->stats->item0;
+                $teams[$team][$id]["data"]["stats"]["item1"] = $participant->stats->item1;
+                $teams[$team][$id]["data"]["stats"]["item2"] = $participant->stats->item2;
+                $teams[$team][$id]["data"]["stats"]["item3"] = $participant->stats->item3;
+                $teams[$team][$id]["data"]["stats"]["item4"] = $participant->stats->item4;
+                $teams[$team][$id]["data"]["stats"]["item5"] = $participant->stats->item5;
+                $teams[$team][$id]["data"]["stats"]["item6"] = $participant->stats->item6;
+
+                $matchData[$team]["kills"] += $participant->stats->kills;
+
             }
-            array_push($matchsResult,$players);
+            $matchData["teams"] = $teams;
+            array_push($matchsResult,$matchData);
             $i++;
         }
+        return $matchsResult;
 
     }
 }
