@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatchHistoryService } from 'src/app/services/match-history.service';
 
@@ -9,9 +9,12 @@ import { MatchHistoryService } from 'src/app/services/match-history.service';
 export class MatchHistoryComponent implements OnInit {
 
   summonerName = "";
-  matchs;
+  matchs = [];
+  init = 0;
+  end = 3;
 
-  constructor(private route: ActivatedRoute, private matchHistoryService: MatchHistoryService) { }
+  constructor(private route: ActivatedRoute, private matchHistoryService: MatchHistoryService) { 
+  }
 
   ngOnInit(): void {
     this.summonerName = this.route.snapshot.paramMap.get("summonerName");
@@ -20,13 +23,16 @@ export class MatchHistoryComponent implements OnInit {
 
   getMatchs(): void{
     if(this.summonerName != ""){
-      let myMatchs$ = this.matchHistoryService.getMatchs(this.summonerName);
+      let myMatchs$ = this.matchHistoryService.getMatchs(this.summonerName,this.init,this.end);
       myMatchs$.subscribe(result => {
-        this.matchs = result;
+        result.map(match => {
+          this.matchs = [...this.matchs,match];
+        })
         console.log(this.matchs);
+        this.init = this.init+3;
+        this.end = this.end+3
       })
     }
-
   }
 
 }

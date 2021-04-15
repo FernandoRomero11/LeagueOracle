@@ -22,8 +22,8 @@ class MyApi{
         return $this->api->getSummonerByName($name)->accountId;
     }
 
-    function getMatchList($accountId){
-        return $this->api->getMatchlistByAccount($accountId);
+    function getMatchList($accountId, $init = 0, $end = 3){
+        return $this->api->getMatchlistByAccount($accountId,null,null,null,null,null,$init,$end);
     }
 
     function getAllItems(){
@@ -67,15 +67,22 @@ class MyApi{
     }
 
     function getChampionInfo($id){
-        $staticChampion = DataDragonAPI::getStaticChampionById($id);
-        $champion["name"] = $staticChampion["name"];
-        $champion["title"] = $staticChampion["title"];
-        $champion["lore"] = $staticChampion["blurb"];
-        $champion["info"] = $staticChampion["info"];
-        $champion["tags"] = $staticChampion["tags"];
-        $champion["stats"] = $staticChampion["stats"];
+        $dragonChampion = DataDragonAPI::getStaticChampionById($id);
+        $apiChampion = $this->api->getStaticChampion($dragonChampion["key"],true);
+
+        $champion["name"] = $dragonChampion["name"];
+        $champion["title"] = $dragonChampion["title"];
+        $champion["lore"] = $dragonChampion["blurb"];
+        $champion["info"] = $dragonChampion["info"];
+        $champion["tags"] = $dragonChampion["tags"];
+        $champion["stats"] = $dragonChampion["stats"];
         $champion["icontag"] = DataDragonAPI::getChampionIcon($id);
         $champion["splashtag"] = DataDragonAPI::getChampionSplash($id);
+        foreach($apiChampion->spells AS $spell){
+            $champion["spells"][$spell->id]["name"] = $spell->name;
+            $champion["spells"][$spell->id]["description"] = $spell->description;
+            $champion["spells"][$spell->id]["icon"] = DataDragonAPI::getSpellIcon($spell->name);
+        }
         return $champion;
     }
 
@@ -84,15 +91,11 @@ class MyApi{
         return $staticChampion->id;
     }
 
-    function getGamesData($name){
+    function getGamesData($name,$init,$end){
         $accountId = $this->getSummonerId($name);
-        $matchs = $this->getMatchList($accountId);
+        $matchs = $this->getMatchList($accountId,$init,$end);
         $matchsResult = [];
-        $i = 0;
         foreach($matchs AS $match){
-            if($i == 2){
-                break;
-            }
             $myMatch = $this->api->getMatch($match->gameId);
             $matchData["type"] = $myMatch->gameMode;
             $matchData["duration"] = $myMatch->gameDuration;
@@ -130,11 +133,9 @@ class MyApi{
                 $teams[$team][$id]["data"]["stats"]["item6"] = $participant->stats->item6;
 
                 $matchData[$team]["kills"] += $participant->stats->kills;
-
             }
             $matchData["teams"] = $teams;
             array_push($matchsResult,$matchData);
-            $i++;
         }
         return $matchsResult;
 
