@@ -1,1 +1,3 @@
-<app-match></app-match>
+<div class="row">
+    <app-match *ngFor="let match of matchs" [match]="match" class="col-12"></app-match>
+</div>

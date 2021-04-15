@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-match',
@@ -6,9 +6,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MatchComponent implements OnInit {
 
-  constructor() { }
+  @Input() match;
+  teams;
+
+  constructor() { 
+    
+  }
 
   ngOnInit(): void {
+    //console.log(this.match);
+    this.teams = this.match.teams;
   }
 
 }

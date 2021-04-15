@@ -25,6 +25,7 @@ const routes: Routes = [
             { path: 'items', component: ItemsComponent, data: { title: 'Items' }},
             { path: 'items/:id', component: ItemDetailComponent, data: { title: 'Item Detail' }},
             { path: 'match-history', component: MatchHistoryComponent, data: { title: 'Match History' }},
+            { path: 'match-history/:summonerName', component: MatchHistoryComponent, data: { title: 'Match History' }},
             { path: 'favourite-players', component: FavouritePlayersComponent, data: { title: 'My favourite players' }},
         ]
     },
