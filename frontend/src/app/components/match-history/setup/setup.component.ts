@@ -15,7 +15,7 @@ export class SetupComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.me)
-    this.result = this.me.data.stats.result?"WIN":"LOST";
+    this.result = this.me.data.stats.result?"VICTORY":"DEFEAT";
     this.time = this.format(this.matchdata.duration);
   }
 
