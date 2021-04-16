@@ -1,5 +1,5 @@
 <?php
-require 'myapi.php';
+require 'LeagueOracle.php';
 header('Access-Control-Allow-Origin: *');
-$myApi = new MyApi();
+$myApi = new LeagueOracle();
 echo json_encode($myApi->getChampionInfo($_GET["championId"]));

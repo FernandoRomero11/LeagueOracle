@@ -11,6 +11,7 @@ import { MatchHistoryComponent } from './match-history/match-history.component';
 import { FavouritePlayersComponent } from './favourite-players/favourite-players.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ChampionDetailComponent } from './champion-detail/champion-detail.component';
+import { FindMatchHistoryComponent } from './find-match-history/find-match-history.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
             { path: 'champions/:id', component: ChampionDetailComponent, data: { title: 'Champion Detail' }},
             { path: 'items', component: ItemsComponent, data: { title: 'Items' }},
             { path: 'items/:id', component: ItemDetailComponent, data: { title: 'Item Detail' }},
-            { path: 'match-history', component: MatchHistoryComponent, data: { title: 'Match History' }},
+            { path: 'match-history', component: FindMatchHistoryComponent, data: { title: 'Match History' }},
             { path: 'match-history/:summonerName', component: MatchHistoryComponent, data: { title: 'Match History' }},
             { path: 'favourite-players', component: FavouritePlayersComponent, data: { title: 'My favourite players' }},
         ]

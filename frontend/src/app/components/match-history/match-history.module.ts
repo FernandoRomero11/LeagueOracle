@@ -5,9 +5,10 @@ import { MatchComponent } from './match/match.component';
 import { TeamsComponent } from './teams/teams.component';
 import { TeamComponent } from './team/team.component';
 import { KdaComponent } from './kda/kda.component';
-import { ResultComponent } from './result/result.component';
+import { ItemsComponent } from './items/items.component';
 import { PlayerComponent } from './player/player.component';
 import { SetupComponent } from './setup/setup.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -16,19 +17,20 @@ import { SetupComponent } from './setup/setup.component';
     TeamsComponent,
     TeamComponent,
     KdaComponent,
-    ResultComponent,
+    ItemsComponent,
     PlayerComponent,
     SetupComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     MatchComponent,
     TeamsComponent,
     TeamComponent,
     KdaComponent,
-    ResultComponent,
+    ItemsComponent,
     PlayerComponent,
     SetupComponent,
   ]

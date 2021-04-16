@@ -1,0 +1,5 @@
+<div>
+    <label>Summoner Name:</label>
+    <input type="text" [(ngModel)]="summonerName">
+    <button [routerLink]="['/dashboard/match-history/', summonerName]">Find it</button>
+</div>

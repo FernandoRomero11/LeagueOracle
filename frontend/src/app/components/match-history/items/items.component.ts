@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-kda',
-  templateUrl: './kda.component.html'
+  selector: 'app-items',
+  templateUrl: './items.component.html'
 })
-export class KdaComponent implements OnInit {
+export class ItemsComponent implements OnInit {
 
   @Input() me;
 

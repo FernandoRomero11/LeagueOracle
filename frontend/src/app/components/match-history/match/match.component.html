@@ -1,16 +1,16 @@
-<div class="card">
+<div class="card" [ngClass]="result ? 'win' : 'lost'">
     <div class="card-body">
         <div class="row">
-            <div class="col-3">
-                <app-setup></app-setup>
+            <div class="d-flex col-3 align-self-center">
+                <app-setup [me]="me" [matchdata]="matchdata"></app-setup>
+            </div>
+            <div class="col-3 align-self-center">
+                <app-kda [me]="me"></app-kda>
             </div>
             <div class="col-3">
-                <app-kda></app-kda>
+                <app-items [me]="me"></app-items>
             </div>
-            <div class="col-3">
-                <app-result></app-result>
-            </div>
-            <div class="col-3">
+            <div class="col-3 align-self-center">
                 <app-teams [teams]="teams"></app-teams>
             </div>
         </div>

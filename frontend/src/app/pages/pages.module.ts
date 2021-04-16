@@ -12,7 +12,9 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
-import { ChampionDetailComponent } from './champion-detail/champion-detail.component'
+import { ChampionDetailComponent } from './champion-detail/champion-detail.component';
+import { FindMatchHistoryComponent } from './find-match-history/find-match-history.component'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ChampionDetailComponent } from './champion-detail/champion-detail.compo
     PagesComponent,
     DashboardComponent,
     ItemDetailComponent,
-    ChampionDetailComponent
+    ChampionDetailComponent,
+    FindMatchHistoryComponent,
   ],
   exports: [
     MatchHistoryComponent,
@@ -32,13 +35,16 @@ import { ChampionDetailComponent } from './champion-detail/champion-detail.compo
     FavouritePlayersComponent,
     PagesComponent,
     DashboardComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    ChampionDetailComponent,
+    FindMatchHistoryComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule
   ]
 })
 export class PagesModule { }

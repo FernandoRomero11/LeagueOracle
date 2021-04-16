@@ -1,21 +1,25 @@
-<div class="d-flex justify-content-center flex-wrap">
-    <div class="m-r-20 align-self-center">
-        <!--<img src="../assets/images/icon/income.png" alt="ChampionIcon">-->
-        <i class="fa fa-user-circle" style="font-size: 6rem;"></i>
+<div class="d-flex">
+    <div class="m-r-40">
+        <h4 class="m-b-10 text-center">{{me.identity.player.summonerName}}</h4>
+        <img alt="{{me.identity.champIcon.attrs.alt}}" class="{{me.identity.champIcon.attrs.class}} m-l-10" src="{{me.identity.champIcon.attrs.src}}" style="width: 125px; border-radius: 50%;">
+        <h5 class="m-t-10 text-center">Level {{me.data.stats.champLevel}}</h5>
     </div>
-    <div class="align-self-center">
-        <h6>Player</h6>
-        <div>
-            <i class="fa fa-square-o" style="font-size: 3rem;"></i>
-            <i class="fa fa-square-o" style="font-size: 3rem;"></i>
-            <!--<img src="../assets/images/icon/income.png" alt="SummonerSpellIcon1">-->
-            <!--<img src="../assets/images/icon/income.png" alt="SummonerSpellIcon2">-->
+    <div class="d-flex align-self-center flex-column">
+        <div class="align-self-center">
+            <h2 class="text-center">
+                <span class="text-primary">
+                    {{matchdata.t100.kills}}
+                </span> VS 
+                <span class="text-danger">
+                    {{matchdata.t200.kills}}
+                </span>
+            </h2>
+            <h1 class="text-center">{{result}}</h1>
+            <h2 class="text-center">{{time}}</h2>
         </div>
-        <div>
-            <i class="fa fa-circle-o" style="font-size: 3rem;"></i>
-            <i class="fa fa-circle-o" style="font-size: 3rem;"></i>
-            <!--<img src="../assets/images/icon/income.png" alt="Rune1">-->
-            <!--<img src="../assets/images/icon/income.png" alt="Rune2">-->
+        <div class="align-self-center">
+            <img alt="{{me.identity.spell1Icon.attrs.alt}}" class="{{me.identity.spell1Icon.attrs.class}}" src="{{me.identity.spell1Icon.attrs.src}}" style="width: 40px;">
+            <img alt="{{me.identity.spell2Icon.attrs.alt}}" class="{{me.identity.spell2Icon.attrs.class}}" src="{{me.identity.spell2Icon.attrs.src}}" style="width: 40px;">
         </div>
     </div>
 </div>
