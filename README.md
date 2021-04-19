@@ -4,11 +4,11 @@ To develop an app that allows you to check out your statistics from League of Le
 # RoadMap
 - [ ] Register Users.
 - [ ] Login.
-- [ ] Match History of a Summoner.
-    - [ ] Match Card. Has 2 Teams Cards and 1 Info Card.
-    - [ ] Info Card. Contains match data. 
-    - [ ] Team Card. Has 5 Player Cards.
-    - [ ] Player Card. Contains Champion used and Summoner Name.
+- [X] Match History of a Summoner.
+    - [X] Match Card. Has 2 Teams Cards and 1 Info Card.
+    - [X] Info Card. Contains match data. 
+    - [X] Team Card. Has 5 Player Cards.
+    - [X] Player Card. Contains Champion used and Summoner Name.
 - [ ] User Profile. (MYSQL Data)
 - [ ] Summoner Profile. (In-Game Data)
     - [ ] Most Played Champions.
@@ -17,11 +17,11 @@ To develop an app that allows you to check out your statistics from League of Le
     - [ ] Check my favourite players.
     - [ ] Add a player to my favourites.
     - [ ] Remove a player from my favourites.
-- [ ] In-Game Items page.
-    - [ ] List Items.
+- [X] In-Game Items page.
+    - [X] List Items.
     - [ ] Detail Page Item.
-- [ ] In-Game Champions page.
-    - [ ] List Champions.
+- [X] In-Game Champions page.
+    - [X] List Champions.
     - [ ] Detail Page Champion.
 - [ ] In-Game Free Champions of Week page.
     - [ ] List Champions.
