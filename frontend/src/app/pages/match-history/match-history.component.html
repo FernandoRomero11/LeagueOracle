@@ -1,4 +1,4 @@
 <div class="row">
-    <app-match *ngFor="let match of matchs" [match]="match" class="col-12"></app-match>
+    <app-match *ngFor="let match of matchs" [match]="match" class="col-12" style="min-width: max-content;"></app-match>
     <button (click)="getMatchs()">More matchs</button>
 </div>

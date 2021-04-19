@@ -1,7 +1,6 @@
-<div class="m-b-5 m-t-5 d-flex no-block p-1 container">
+<div class="m-b-5 m-t-5 d-flex p-1 container">
     <div [routerLink]="['/dashboard/champions', player.identity.champId]">
-        <img alt="{{player.identity.champIcon.attrs.alt}}" class="{{player.identity.champIcon.attrs.class}}" src="{{player.identity.champIcon.attrs.src}}"  style="width: 30px;">
-
+        <img alt="{{player.identity.champIcon.attrs.alt}}" src="{{player.identity.champIcon.attrs.src}}" style="width: 40px;">
     </div>
-    <h5 class="m-b-0 align-self-center">{{name}}</h5>
+    <h5 class="m-b-0 m-l-10 align-self-center">{{name}}</h5>
 </div>

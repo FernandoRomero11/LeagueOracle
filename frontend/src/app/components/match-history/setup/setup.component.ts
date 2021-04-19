@@ -10,6 +10,7 @@ export class SetupComponent implements OnInit {
   @Input() matchdata;
   result;
   time;
+  date;
 
   constructor() { }
 
@@ -34,5 +35,4 @@ export class SetupComponent implements OnInit {
     ret += "" + secs + " s";
     return ret;
   }
-
 }

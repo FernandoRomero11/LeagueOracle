@@ -15,6 +15,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ChampionDetailComponent } from './champion-detail/champion-detail.component';
 import { FindMatchHistoryComponent } from './find-match-history/find-match-history.component'
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    BrowserModule,
     SharedModule,
     RouterModule,
     ComponentsModule,

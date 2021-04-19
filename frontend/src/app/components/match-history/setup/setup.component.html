@@ -1,8 +1,22 @@
 <div class="d-flex">
-    <div class="m-r-40">
-        <h4 class="m-b-10 text-center">{{me.identity.player.summonerName}}</h4>
-        <img alt="{{me.identity.champIcon.attrs.alt}}" class="{{me.identity.champIcon.attrs.class}} m-l-10" src="{{me.identity.champIcon.attrs.src}}" style="width: 125px; border-radius: 50%;">
-        <h5 class="m-t-10 text-center">Level {{me.data.stats.champLevel}}</h5>
+    <div class="d-flex m-r-40 text-center">
+        <div class=" align-self-center">
+            <h4 class="m-b-10 text-center">{{me.identity.player.summonerName}}</h4>
+            <img class="rounded-circle" alt="{{me.identity.champIcon.attrs.alt}}" src="{{me.identity.champIcon.attrs.src}}" style="width: 125px;">
+            <h5 class="m-t-10 text-center">Level {{me.data.stats.champLevel}}</h5>
+            <div class="align-self-center text-center">
+                <img alt="{{me.identity.spell1Icon.attrs.alt}}" src="{{me.identity.spell1Icon.attrs.src}}" style="width: 40px;">
+                <img alt="{{me.identity.spell2Icon.attrs.alt}}" src="{{me.identity.spell2Icon.attrs.src}}" style="width: 40px;">
+                <div>
+                    <div class="d-inline-block m-r-5 rounded-circle bg-dark">
+                        <img alt="{{me.identity.rune1Icon.attrs.alt}}" src="{{me.identity.rune1Icon.attrs.src}}" style="width: 40px;">
+                    </div>
+                    <div class="m-l-5 d-inline">
+                        <img alt="{{me.identity.rune2Icon.attrs.alt}}" src="{{me.identity.rune2Icon.attrs.src}}" style="width: 30px;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="d-flex align-self-center flex-column">
         <div class="align-self-center">
@@ -14,12 +28,10 @@
                     {{matchdata.t200.kills}}
                 </span>
             </h2>
-            <h1 class="text-center">{{result}}</h1>
+            <h2 class="text-center">{{matchdata.type}}</h2>
+            <h2 class="text-center" style="font-weight: 600;">{{result}}</h2>
             <h2 class="text-center">{{time}}</h2>
-        </div>
-        <div class="align-self-center">
-            <img alt="{{me.identity.spell1Icon.attrs.alt}}" class="{{me.identity.spell1Icon.attrs.class}}" src="{{me.identity.spell1Icon.attrs.src}}" style="width: 40px;">
-            <img alt="{{me.identity.spell2Icon.attrs.alt}}" class="{{me.identity.spell2Icon.attrs.class}}" src="{{me.identity.spell2Icon.attrs.src}}" style="width: 40px;">
+            <h3 class="text-center">{{date}}</h3>
         </div>
     </div>
 </div>
