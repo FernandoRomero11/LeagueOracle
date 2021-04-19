@@ -5,7 +5,7 @@ use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\DataDragonAPI\DataDragonAPI;
 use RiotAPI\Base\Definitions\Region;
 
-const API = 'RGAPI-88f6ac0b-2b2a-496d-a0fe-d113124f2cb0';
+const API = 'RGAPI-10999703-9619-4278-b1ea-70f2768b5649';
 
 class LeagueOracle{
     public $api;
@@ -16,6 +16,7 @@ class LeagueOracle{
             LeagueAPI::SET_REGION => Region::EUROPE_WEST,
         ]);
         DataDragonAPI::initByCdn();
+
     }
 
     public function getAllItems(){
@@ -89,6 +90,8 @@ class LeagueOracle{
     public function getGamesData($name,$init,$end){
         $accountId = $this->getSummonerId($name);
         $matchs = $this->getMatchList($accountId,$init,$end);
+        $runes = $this->api->getStaticReforgedRunes()->runes;
+        $paths = $this->api->getStaticReforgedRunePaths()->paths;
         $matchsResult = [];
         foreach($matchs AS $match){
             $myMatch = $this->api->getMatch($match->gameId);
@@ -107,6 +110,8 @@ class LeagueOracle{
                 $championName = $this->getChampionNameById($participant->championId);
                 $spell1 = $this->getSpellNameById($participant->spell1Id);
                 $spell2 = $this->getSpellNameById($participant->spell2Id);
+                $rune = DataDragonAPI::getReforgedRuneIconO($runes[$participant->stats->perk0]);
+                $path = DataDragonAPI::getReforgedRunePathIconO($paths[$participant->stats->perkSubStyle]);
                 $team = "t".$participant->teamId;
                 $id = "p".$participant->participantId;
 
@@ -114,6 +119,8 @@ class LeagueOracle{
                 $teams[$team][$id]["identity"]["champIcon"] = DataDragonAPI::getChampionIcon($championName);
                 $teams[$team][$id]["identity"]["spell1Icon"] = DataDragonAPI::getSummonerSpellIconO($spell1);
                 $teams[$team][$id]["identity"]["spell2Icon"] = DataDragonAPI::getSummonerSpellIconO($spell2);
+                $teams[$team][$id]["identity"]["rune1Icon"] = $rune;
+                $teams[$team][$id]["identity"]["rune2Icon"] = $path;
                 $teams[$team][$id]["data"] = $participant->getData();
                 unset($teams[$team][$id]["data"]["timeline"], $teams[$team][$id]["data"]["stats"]);
                 $teams[$team][$id]["data"]["stats"] = $this->getParticipantStats($participant);
@@ -139,6 +146,7 @@ class LeagueOracle{
 
         $matchData["type"] = $match->gameMode;
         $matchData["duration"] = $match->gameDuration;
+        $matchData["date"] = $match->gameCreation;
         $matchData["t100"]["kills"] = 0;
         $matchData["t200"]["kills"] = 0;
 
