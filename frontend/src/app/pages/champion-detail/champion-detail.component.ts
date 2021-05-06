@@ -10,6 +10,7 @@ export class ChampionDetailComponent implements OnInit {
 
   championId = "";
   champion;
+  spells;
 
   constructor(private route: ActivatedRoute, private championsService: ChampionsService) { }
 
@@ -23,6 +24,7 @@ export class ChampionDetailComponent implements OnInit {
       let myChampInfo$ = this.championsService.getChampionInfo(this.championId);
       myChampInfo$.subscribe(result => {
         this.champion = result;
+        this.spells = Object.values(this.champion.spells);
         console.log(this.champion);
       })
     }

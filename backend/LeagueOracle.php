@@ -5,7 +5,7 @@ use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\DataDragonAPI\DataDragonAPI;
 use RiotAPI\Base\Definitions\Region;
 
-const API = 'RGAPI-10999703-9619-4278-b1ea-70f2768b5649';
+const API = 'RGAPI-4135a031-28f4-4a86-a9fc-fdc2372d8855';
 
 class LeagueOracle{
     public $api;
@@ -74,7 +74,7 @@ class LeagueOracle{
         foreach($apiChampion->spells AS $spell){
             $champion["spells"][$spell->id]["name"] = $spell->name;
             $champion["spells"][$spell->id]["description"] = $spell->description;
-            $champion["spells"][$spell->id]["icon"] = DataDragonAPI::getSpellIcon($spell->name);
+            $champion["spells"][$spell->id]["icon"] = DataDragonAPI::getChampionSpellIconO($spell);
         }
         return $champion;
     }
