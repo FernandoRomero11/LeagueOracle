@@ -13,13 +13,14 @@
         </div>
         <div class="row">
             <div class="col-6">
-                <img alt="{{champion.splashtag.attrs.alt}}" class="{{champion.splashtag.attrs.class}}" src="{{champion.splashtag.attrs.src}}" style="width: 600px;">
+                <img alt="{{champion.splashtag.attrs.alt}}" class="{{champion.splashtag.attrs.class}} mb-3" src="{{champion.splashtag.attrs.src}}" style="width: 600px;">
+                <img alt="{{champion.splash2tag.attrs.alt}}" class="{{champion.splash2tag.attrs.class}}" src="{{champion.splash2tag.attrs.src}}" style="width: 600px;">
             </div>
             <div class="col-6">
                 <div *ngFor="let spell of spells" class="row">
                     <img alt="{{spell.icon.attrs.alt}}" class="{{spell.icon.attrs.class}}" src="{{spell.icon.attrs.src}}">
-                    <h2 class="mt-auto mb-auto ml-3">{{spell.name}}</h2>
-                    <p class="mt-3 pr-5 text-justify" style="white-space: pre-wrap" [innerHTML]="spell.description"></p>
+                    <h2 class="mt-auto mb-auto col-10">{{spell.name}}</h2>
+                    <p class="mt-3 pr-5 text-justify d-block" style="white-space: pre-wrap" [innerHTML]="spell.description"></p>
                 </div>
             </div>
         </div>

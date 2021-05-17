@@ -70,7 +70,6 @@ class LeagueOracle{
     public function getChampionInfo($id){
         $dragonChampion = DataDragonAPI::getStaticChampionById($id);
         $apiChampion = $this->api->getStaticChampion($dragonChampion["key"],true);
-
         $champion["name"] = $dragonChampion["name"];
         $champion["title"] = $dragonChampion["title"];
         $champion["lore"] = $dragonChampion["blurb"];
@@ -79,6 +78,10 @@ class LeagueOracle{
         $champion["stats"] = $dragonChampion["stats"];
         $champion["icontag"] = DataDragonAPI::getChampionIcon($id);
         $champion["splashtag"] = DataDragonAPI::getChampionSplash($id);
+        $champion["splash2tag"] = DataDragonAPI::getChampionSplash($id,1);
+        $champion["spells"]["passive"]["name"] = $apiChampion->passive->name;
+        $champion["spells"]["passive"]["description"] = $apiChampion->passive->description;
+        $champion["spells"]["passive"]["icon"] = DataDragonAPI::getChampionPassiveIconO($apiChampion);
         foreach($apiChampion->spells AS $spell){
             $champion["spells"][$spell->id]["name"] = $spell->name;
             $champion["spells"][$spell->id]["description"] = $spell->description;
