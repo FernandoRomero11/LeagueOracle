@@ -20,13 +20,13 @@ const routes: Routes = [
         component: PagesComponent,
         //canActivate: [ AuthGuard ],
         children: [
-            { path: '', component: DashboardComponent, data: { title: 'Dashboard' } },
-            { path: 'champions', component: ChampionsComponent, data: { title: 'Champions' }},
+            { path: '', component: DashboardComponent, data: { title: 'Dashboard' }, pathMatch: 'full' },
             { path: 'champions/:id', component: ChampionDetailComponent, data: { title: 'Champion Detail' }},
-            { path: 'items', component: ItemsComponent, data: { title: 'Items' }},
+            { path: 'champions', component: ChampionsComponent, data: { title: 'Champions' }},
             { path: 'items/:id', component: ItemDetailComponent, data: { title: 'Item Detail' }},
-            { path: 'match-history', component: FindMatchHistoryComponent, data: { title: 'Match History' }},
+            { path: 'items', component: ItemsComponent, data: { title: 'Items' }},
             { path: 'match-history/:summonerName', component: MatchHistoryComponent, data: { title: 'Match History' }},
+            { path: 'match-history', component: FindMatchHistoryComponent, data: { title: 'Match History' }},
             { path: 'favourite-players', component: FavouritePlayersComponent, data: { title: 'My favourite players' }},
         ]
     },

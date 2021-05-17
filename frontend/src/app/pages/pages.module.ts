@@ -16,6 +16,9 @@ import { ChampionDetailComponent } from './champion-detail/champion-detail.compo
 import { FindMatchHistoryComponent } from './find-match-history/find-match-history.component'
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from '../services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,11 @@ import { BrowserModule } from '@angular/platform-browser';
     SharedModule,
     RouterModule,
     ComponentsModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
   ]
 })
 export class PagesModule { }

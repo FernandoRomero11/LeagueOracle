@@ -25,6 +25,7 @@ export class ChampionDetailComponent implements OnInit {
       myChampInfo$.subscribe(result => {
         this.champion = result;
         this.spells = Object.values(this.champion.spells);
+        console.log(this.spells[0].description);
         console.log(this.champion);
       })
     }

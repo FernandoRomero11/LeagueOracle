@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { Nopage404Component } from './nopage404/nopage404.component';
-import { ComponentsModule } from './components/components.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { ComponentsModule } from './components/components.module';
     AppRoutingModule,
     PagesModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule 
   ],
   bootstrap: [AppComponent]
 })

@@ -5,7 +5,7 @@ use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\DataDragonAPI\DataDragonAPI;
 use RiotAPI\Base\Definitions\Region;
 
-const API = 'RGAPI-4135a031-28f4-4a86-a9fc-fdc2372d8855';
+const API = 'RGAPI-71fa0b3d-1a0a-4afb-9d98-4562faf5581a';
 
 class LeagueOracle{
     public $api;
@@ -40,8 +40,16 @@ class LeagueOracle{
         $item["stats"] = $staticItems->data[$id]->stats->getData();
         $item["htmltag"] = DataDragonAPI::getItemIcon($staticItems->data[$id]->id);
         $item["from"] = [];
-        foreach($staticItems->data[$id]->from AS $childItem){
-            $item["from"][$childItem] = DataDragonAPI::getItemIcon($staticItems->data[$childItem]->id);
+        $item["into"] = [];
+        if($staticItems->data[$id]->from){
+            foreach($staticItems->data[$id]->from AS $childItem){
+                $item["from"][$childItem] = DataDragonAPI::getItemIcon($staticItems->data[$childItem]->id);
+            }
+        }
+        if($staticItems->data[$id]->into) {
+            foreach ($staticItems->data[$id]->into as $parentItem) {
+                $item["into"][$parentItem] = DataDragonAPI::getItemIcon($staticItems->data[$parentItem]->id);
+            }
         }
         return $item;
     }

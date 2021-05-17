@@ -1,13 +1,57 @@
 <div class="d-flex">
-    <div class="card card-body align-items-center">
-        <div class="row">
+    <div class="card card-body">
+        <div class="row pl-3">
             <img alt="{{item.htmltag.attrs.alt}}" class="{{item.htmltag.attrs.class}}" src="{{item.htmltag.attrs.src}}" style="width: 100px;">
-            <h1 class="no-block">{{item.name}}</h1>
+            <div class="pl-3 mt-auto mb-auto">
+                <h1>{{item.name}}</h1>
+            </div>
         </div>
-        <div class="row">
-            <h2>Description:</h2>
-            &lt;{{item.description}}&gt;
+        <div class="row p-3">
+            <div class="col-12">
+                <h2>Gold:</h2>
+                <div class="pt-0 pr-3 pb-0 pl-3">
+                    <p>Total Cost: {{item.gold.total}}</p>
+                    <p>Sell Cost: {{item.gold.sell}}</p>
+                    <p>Purchasable: {{item.gold.purchasable}}</p>
+                </div>
+            </div>
+            <div class="col-12">
+                <h2>Description:</h2>
+                <div class="pt-0 pr-3 pb-0 pl-3">
+                    <p [innerHTML]="item.description"></p>
+                </div>
+            </div>
+            <div class="col-12" *ngIf="item.stats.length > 0">
+                <h2>Stats:</h2>
+                <div class="pt-0 pr-3 pb-3 pl-3">
+                    <div *ngFor="let stat of item.stats" class="row">
+                        <span class="col-3">{{stat[0]}}</span>
+                        <span class="col-1">{{stat[1]}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12"  *ngIf="item.into.length > 0">
+                <h2>Crafts into:</h2>
+                <div class="pt-0 pr-3 pb-3 pl-3">
+                    <img *ngFor="let parentItem of item.into" 
+                        alt="{{parentItem[1].attrs.alt}}" 
+                        class="{{parentItem[1].attrs.class}} mr-3 mb-3" 
+                        src="{{parentItem[1].attrs.src}}" 
+                        style="width: 75px;"
+                        [routerLink]="['/dashboard/items', parentItem[0]]">
+                </div>
+            </div>
+            <div class="col-12"  *ngIf="item.from.length > 0">
+                <h2>Recipe:</h2>
+                <div class="pt-0 pr-3 pb-0 pl-3">
+                    <img *ngFor="let childitem of item.from" 
+                        alt="{{childitem[1].attrs.alt}}" 
+                        class="{{childitem[1].attrs.class}} mr-3" 
+                        src="{{childitem[1].attrs.src}}" 
+                        style="width: 75px;"
+                        [routerLink]="['/dashboard/items', childitem[0]]">
+                </div>
+            </div>
         </div>
-        
     </div>
 </div>
