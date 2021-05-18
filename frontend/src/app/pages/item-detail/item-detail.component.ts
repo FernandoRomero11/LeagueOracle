@@ -4,7 +4,8 @@ import { ItemsService } from 'src/app/services/items.service';
 
 @Component({
   selector: 'app-item-detail',
-  templateUrl: './item-detail.component.html'
+  templateUrl: './item-detail.component.html',
+  styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
 

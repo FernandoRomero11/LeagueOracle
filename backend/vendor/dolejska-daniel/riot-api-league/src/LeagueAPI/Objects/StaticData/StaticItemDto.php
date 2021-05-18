@@ -75,6 +75,9 @@ class StaticItemDto extends ApiObject
 	/** @var string $requiredChampion */
 	public $requiredChampion;
 
+    /** @var string $requiredAlly */
+    public $requiredAlly;
+
 	/** @var string[] $from */
 	public $from;
 

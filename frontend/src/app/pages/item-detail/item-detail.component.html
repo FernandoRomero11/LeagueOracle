@@ -1,9 +1,11 @@
 <div class="d-flex">
     <div class="card card-body">
         <div class="row pl-3">
-            <img alt="{{item.htmltag.attrs.alt}}" class="{{item.htmltag.attrs.class}}" src="{{item.htmltag.attrs.src}}" style="width: 100px;">
+            <span [ngClass]="item.requiredAlly !== '' ? 'bordered': ''">
+                <img alt="{{item.htmltag.attrs.alt}}" class="{{item.htmltag.attrs.class}}" src="{{item.htmltag.attrs.src}}" style="width: 100px;">
+            </span>
             <div class="pl-3 mt-auto mb-auto">
-                <h1>{{item.name}}</h1>
+                <h1>{{item.name}}<span *ngIf="item.requiredAlly === 'Ornn' "> (Ornn's Upgrade)</span></h1>
             </div>
         </div>
         <div class="row p-3">
@@ -32,11 +34,11 @@
             </div>
             <div class="col-12"  *ngIf="item.into.length > 0">
                 <h2>Crafts into:</h2>
-                <div class="pt-0 pr-3 pb-3 pl-3">
+                <div class="pt-0 pr-3 pb-0 pl-3">
                     <img *ngFor="let parentItem of item.into" 
-                        alt="{{parentItem[1].attrs.alt}}" 
-                        class="{{parentItem[1].attrs.class}} mr-3 mb-3" 
-                        src="{{parentItem[1].attrs.src}}" 
+                        alt="{{parentItem[1].icon.attrs.alt}}" 
+                        class="{{parentItem[1].icon.attrs.class}} mr-3 mb-3"
+                        src="{{parentItem[1].icon.attrs.src}}" 
                         style="width: 75px;"
                         [routerLink]="['/dashboard/items', parentItem[0]]">
                 </div>
@@ -45,9 +47,9 @@
                 <h2>Recipe:</h2>
                 <div class="pt-0 pr-3 pb-0 pl-3">
                     <img *ngFor="let childitem of item.from" 
-                        alt="{{childitem[1].attrs.alt}}" 
-                        class="{{childitem[1].attrs.class}} mr-3" 
-                        src="{{childitem[1].attrs.src}}" 
+                        alt="{{childitem[1].icon.attrs.alt}}" 
+                        class="{{childitem[1].icon.attrs.class}} mr-3" 
+                        src="{{childitem[1].icon.attrs.src}}" 
                         style="width: 75px;"
                         [routerLink]="['/dashboard/items', childitem[0]]">
                 </div>

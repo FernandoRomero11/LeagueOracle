@@ -25,6 +25,10 @@ class LeagueOracle{
         foreach ($staticItems AS $staticItem){
             $item["id"] = $staticItem->id;
             $item["name"] = $staticItem->name;
+            $item["requiredAlly"] = "";
+            if(property_exists($staticItem,"requiredAlly") && $staticItem->requiredAlly === "Ornn"){
+                $item["requiredAlly"] = $staticItem->requiredAlly;
+            }
             $item["htmltag"] = DataDragonAPI::getItemIcon($staticItem->id);
             $items[] = $item;
         }
@@ -39,16 +43,20 @@ class LeagueOracle{
         $item["gold"] = $staticItems->data[$id]->gold->getData();
         $item["stats"] = $staticItems->data[$id]->stats->getData();
         $item["htmltag"] = DataDragonAPI::getItemIcon($staticItems->data[$id]->id);
+        $item["requiredAlly"] = "";
+        if(property_exists($staticItems->data[$id],"requiredAlly") && $staticItems->data[$id]->requiredAlly === "Ornn"){
+            $item["requiredAlly"] = $staticItems->data[$id]->requiredAlly;
+        }
         $item["from"] = [];
         $item["into"] = [];
         if($staticItems->data[$id]->from){
             foreach($staticItems->data[$id]->from AS $childItem){
-                $item["from"][$childItem] = DataDragonAPI::getItemIcon($staticItems->data[$childItem]->id);
+                $item["from"][$childItem]["icon"] = DataDragonAPI::getItemIcon($staticItems->data[$childItem]->id);
             }
         }
         if($staticItems->data[$id]->into) {
             foreach ($staticItems->data[$id]->into as $parentItem) {
-                $item["into"][$parentItem] = DataDragonAPI::getItemIcon($staticItems->data[$parentItem]->id);
+                $item["into"][$parentItem]["icon"] = DataDragonAPI::getItemIcon($staticItems->data[$parentItem]->id);
             }
         }
         return $item;
@@ -70,6 +78,7 @@ class LeagueOracle{
     public function getChampionInfo($id){
         $dragonChampion = DataDragonAPI::getStaticChampionById($id);
         $apiChampion = $this->api->getStaticChampion($dragonChampion["key"],true);
+        $champion["id"] = $apiChampion->key;
         $champion["name"] = $dragonChampion["name"];
         $champion["title"] = $dragonChampion["title"];
         $champion["lore"] = $dragonChampion["blurb"];
