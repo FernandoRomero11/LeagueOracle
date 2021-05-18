@@ -3,33 +3,33 @@
     <div class="d-flex">
         <div>
             <figure class="border border-dark">
-                <img alt="{{me.data.stats.item0tag.attrs.alt}}" src="{{me.data.stats.item0tag.attrs.src}}">
+                <img *ngIf="item0.id > 0" alt="{{item0.img.attrs.alt}}" src="{{item0.img.attrs.src}}">
             </figure>
             <figure class="border border-dark">
-                <img alt="{{me.data.stats.item1tag.attrs.alt}}" src="{{me.data.stats.item1tag.attrs.src}}">
-            </figure>
-
-        </div>
-        <div>
-            <figure class="border border-dark">
-                <img alt="{{me.data.stats.item3tag.attrs.alt}}" src="{{me.data.stats.item3tag.attrs.src}}">
-            </figure>
-            <figure class="border border-dark">
-                <img alt="{{me.data.stats.item4tag.attrs.alt}}" src="{{me.data.stats.item4tag.attrs.src}}">
+                <img *ngIf="item1.id > 0" alt="{{item1.img.attrs.alt}}" src="{{item1.img.attrs.src}}">
             </figure>
 
         </div>
         <div>
             <figure class="border border-dark">
-                <img alt="{{me.data.stats.item2tag.attrs.alt}}" src="{{me.data.stats.item2tag.attrs.src}}">
+                <img *ngIf="item3.id > 0" alt="{{item3.img.attrs.alt}}" src="{{item3.img.attrs.src}}">
             </figure>
             <figure class="border border-dark">
-                <img alt="{{me.data.stats.item5tag.attrs.alt}}" src="{{me.data.stats.item5tag.attrs.src}}">
+                <img *ngIf="item4.id > 0" alt="{{item4.img.attrs.alt}}" src="{{item4.img.attrs.src}}">
+            </figure>
+
+        </div>
+        <div>
+            <figure class="border border-dark">
+                <img *ngIf="item2.id > 0" alt="{{item2.img.attrs.alt}}" src="{{item2.img.attrs.src}}">
+            </figure>
+            <figure class="border border-dark">
+                <img *ngIf="item5.id > 0" alt="{{item5.img.attrs.alt}}" src="{{item5.img.attrs.src}}">
             </figure>
         </div>
         <div>
             <figure class="border border-dark">
-                <img alt="{{me.data.stats.item6tag.attrs.alt}}" src="{{me.data.stats.item6tag.attrs.src}}">
+                <img *ngIf="item6.id > 0" alt="{{item6.img.attrs.alt}}" src="{{item6.img.attrs.src}}">
             </figure>
         </div>
     </div>

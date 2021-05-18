@@ -5,7 +5,7 @@ use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\DataDragonAPI\DataDragonAPI;
 use RiotAPI\Base\Definitions\Region;
 
-const API = 'RGAPI-71fa0b3d-1a0a-4afb-9d98-4562faf5581a';
+const API = 'RGAPI-7d69803f-20b7-417e-a68a-7122bde51465';
 
 class LeagueOracle{
     public $api;
@@ -186,20 +186,20 @@ class LeagueOracle{
         $stats["visionScore"] = $participant->stats->visionScore;
         $stats["minionsKilled"] = $participant->stats->totalMinionsKilled;
         $stats["result"] = $participant->stats->win;
-        $stats["item0tag"] = $this->getItemIcon($participant->stats->item0);
-        $stats["item1tag"] = $this->getItemIcon($participant->stats->item1);
-        $stats["item2tag"] = $this->getItemIcon($participant->stats->item2);
-        $stats["item3tag"] = $this->getItemIcon($participant->stats->item3);
-        $stats["item4tag"] = $this->getItemIcon($participant->stats->item4);
-        $stats["item5tag"] = $this->getItemIcon($participant->stats->item5);
-        $stats["item6tag"] = $this->getItemIcon($participant->stats->item6);
-        $stats["item0"] = $participant->stats->item1;
-        $stats["item1"] = $participant->stats->item1;
-        $stats["item2"] = $participant->stats->item2;
-        $stats["item3"] = $participant->stats->item3;
-        $stats["item4"] = $participant->stats->item4;
-        $stats["item5"] = $participant->stats->item5;
-        $stats["item6"] = $participant->stats->item6;
+        $stats["item0"]["img"] = $this->getItemIcon($participant->stats->item0);
+        $stats["item1"]["img"] = $this->getItemIcon($participant->stats->item1);
+        $stats["item2"]["img"] = $this->getItemIcon($participant->stats->item2);
+        $stats["item3"]["img"] = $this->getItemIcon($participant->stats->item3);
+        $stats["item4"]["img"] = $this->getItemIcon($participant->stats->item4);
+        $stats["item5"]["img"] = $this->getItemIcon($participant->stats->item5);
+        $stats["item6"]["img"] = $this->getItemIcon($participant->stats->item6);
+        $stats["item0"]["id"] = $participant->stats->item0;
+        $stats["item1"]["id"] = $participant->stats->item1;
+        $stats["item2"]["id"] = $participant->stats->item2;
+        $stats["item3"]["id"] = $participant->stats->item3;
+        $stats["item4"]["id"] = $participant->stats->item4;
+        $stats["item5"]["id"] = $participant->stats->item5;
+        $stats["item6"]["id"] = $participant->stats->item6;
 
         return $stats;
     }
