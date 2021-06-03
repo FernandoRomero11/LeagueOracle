@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { Nopage404Component } from './nopage404/nopage404.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthModule,
     HttpClientModule,
     BrowserAnimationsModule 
+  ],
+  providers:[
+    CookieService,
   ],
   bootstrap: [AppComponent]
 })
