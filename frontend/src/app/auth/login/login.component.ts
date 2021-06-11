@@ -23,14 +23,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login() {
+  public login() {
+    console.log("entro");
     const user = { 
       email: this.loginForm.get('email').value, 
       password: this.loginForm.get('password').value,
     };
     this.authService.login(user).subscribe(data => {
       console.log(data);
-      this.authService.setToken(data.token);
       this.router.navigateByUrl('/');
     },
     error => {

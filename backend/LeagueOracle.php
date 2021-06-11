@@ -5,7 +5,7 @@ use RiotAPI\LeagueAPI\LeagueAPI;
 use RiotAPI\DataDragonAPI\DataDragonAPI;
 use RiotAPI\Base\Definitions\Region;
 
-const API = 'RGAPI-7d69803f-20b7-417e-a68a-7122bde51465';
+const API = 'RGAPI-74d08fb4-cc2e-42f3-b728-0e4bf7acfcce';
 
 class LeagueOracle{
     public $api;
@@ -16,7 +16,6 @@ class LeagueOracle{
             LeagueAPI::SET_REGION => Region::EUROPE_WEST,
         ]);
         DataDragonAPI::initByCdn();
-
     }
 
     public function getAllItems(){
@@ -214,7 +213,4 @@ class LeagueOracle{
         $item->attrs["class"] = "";
         return $item;
     }
-
-
-
 }

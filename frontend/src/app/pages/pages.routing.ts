@@ -12,13 +12,14 @@ import { FavouritePlayersComponent } from './favourite-players/favourite-players
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { ChampionDetailComponent } from './champion-detail/champion-detail.component';
 import { FindMatchHistoryComponent } from './find-match-history/find-match-history.component';
+import { AuthGuardService } from '../services/auth-guard.service';
 
 
 const routes: Routes = [
     { 
         path: 'dashboard', 
         component: PagesComponent,
-        //canActivate: [ AuthGuard ],
+        canActivate: [ AuthGuardService ],
         children: [
             { path: '', component: DashboardComponent, data: { title: 'Dashboard' }, pathMatch: 'full' },
             { path: 'champions/:id', component: ChampionDetailComponent, data: { title: 'Champion Detail' }},

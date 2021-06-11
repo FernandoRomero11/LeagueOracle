@@ -29,7 +29,7 @@ export class RegisterComponent {
     };
     this.authService.register(user).subscribe(data => {
       console.log(data);
-      this.authService.setToken(data.token);
+      this.router.navigateByUrl('/login');
     });
   }
 }

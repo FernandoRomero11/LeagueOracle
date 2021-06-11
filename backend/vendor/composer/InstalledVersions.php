@@ -71,6 +71,15 @@ private static $installed = array (
       ),
       'reference' => '177713fbb910320c1470fbe99f131b05d1c365ca',
     ),
+    'firebase/php-jwt' => 
+    array (
+      'pretty_version' => 'v5.3.0',
+      'version' => '5.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3c2d70f2e64e2922345e89f2ceae47d2463faae1',
+    ),
     'guzzlehttp/guzzle' => 
     array (
       'pretty_version' => '7.3.0',
